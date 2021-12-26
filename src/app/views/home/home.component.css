@@ -1,0 +1,125 @@
+
+.row{
+ margin: 5% 0;
+}
+
+.h1B {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 900;
+}
+.h1L {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 100;
+}
+.divTextFilm {
+    font-size: 3rem;
+    line-height: 3rem;
+    padding-top: 2rem;
+    font-weight: 100;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  margin: 0px 300px 20px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.input{
+     display: inline-block;
+         padding-right: 10px;
+}
+.btn{
+ display: inline-block;
+     vertical-align: baseline;
+}
+button{
+  background-color:"FFCC1D";
+}
+
+.btnSend{
+ background-color:FFCC1D;
+}
+
+.filmSortie{
+  margin: 5% 0;
+}
+.imagefilm{
+  margin:0 12px;
+}
+.toujourAlAffiche{
+  margin: 5% 0;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #FFCC1D;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+.h1Sous {
+    text-transform: uppercase;
+}
+
+.voirtous {
+    background-color: #212529;
+    padding-right: 1em;
+    padding-left: 1em;
+    border-radius: 10rem;
+    color: #fff;
+    display: inline-block !important;
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    font-size: 1.3rem;
+}
+
+.justify-content-center {
+    -ms-flex-pack: center!important;
+    justify-content: center!important;
+}
+
+.btn{
+  background-color:black;
+  color:white;
+  height:3,5em;
+  margin-top:0.4em;
+}

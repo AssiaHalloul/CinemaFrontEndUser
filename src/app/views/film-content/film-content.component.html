@@ -1,0 +1,84 @@
+
+<div class="container ">
+
+  <div class="row">
+    <div class="col-sm-12" >
+      <span class="textFilm">Votre <strong>Film</strong> </span>
+      <div class="h1Sous">
+        <h4>Cinema <span class="h1B">Rif  tetouan</span></h4>
+      </div>
+      <mat-card>
+        <div class="row">
+          <div class="col-sm">
+            <img src="../../../assets/images/2.jpg" alt="Avatar" height="100%" width="100%">
+          </div>
+          <div class="col-sm-5">
+            <h1><strong>CAPTAIN AMERICA</strong></h1>
+            <h3>Drama , Crime , thriller , Histoire<span>  02:30:15</span></h3>
+            <p>
+              Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres
+              à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku.
+            </p>
+            <h3>Realisateur :<span></span></h3>
+            <h3>Acteurs :<span> </span></h3>
+            <h3>Sortie :<span> 09/12/2021 </span></h3>
+            <p></p>
+          </div>
+          <div class="col-sm">
+            <iframe width="400" height="240" src="https://www.youtube.com/embed/IB0keJtKDvw" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+
+            </iframe>
+          </div>
+        </div>
+        <div class="divTextFilm">
+          <h1>Les <strong>Photos</strong></h1>
+
+          <div class="toujourAlAffiche">
+            <owl-carousel-o [options]="lesSorties">
+
+              <ng-container *ngFor="let filmSortie of filmSorties">
+                <ng-template carouselSlide [id]="filmSortie.id">
+                  <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                </ng-template>
+              </ng-container>
+
+            </owl-carousel-o>
+
+          </div>
+        </div>
+        <div class="divTextFilm">
+          <h1>Les <strong>Seances</strong></h1>
+
+            <mat-tab-group  dynamicHeight mat-align-tabs="start">
+
+              <mat-tab label="22" disabled>
+
+              </mat-tab>
+              <mat-tab label="23" disabled> </mat-tab>
+              <mat-tab label="24">
+
+                <div class="chip">
+                  17h00
+                </div>
+                <div class="chip">
+                  17h00
+                </div>
+                <br><br><br>
+              </mat-tab>
+              <mat-tab label="25"> </mat-tab>
+              <mat-tab label="26"> </mat-tab>
+              <mat-tab label="27"> </mat-tab>
+              <mat-tab label="28"> </mat-tab>
+
+            </mat-tab-group>
+
+
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+
+
+</div>

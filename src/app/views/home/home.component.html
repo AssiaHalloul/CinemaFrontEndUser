@@ -1,0 +1,193 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <owl-carousel-o [options]="customOptions">
+
+        <ng-container *ngFor="let slide of slides">
+          <ng-template carouselSlide [id]="slide.id">
+            <img [src]="slide.img" >
+          </ng-template>
+        </ng-container>
+
+      </owl-carousel-o>
+
+    </div>
+  </div>
+  <div class="row" >
+    <div class="col-sm-12">
+      <mat-card>
+        <div class="divTextFilm">
+          <span class="h1L">Les</span><span class="h1B"> Sorties</span>
+          <div class="h1Sous">
+            <h4>Votre Cinema <span class="h1B">Rif  tetouan</span></h4>
+          </div>
+
+          <div class="filmSortie">
+            <owl-carousel-o [options]="lesSorties">
+
+              <ng-container *ngFor="let filmSortie of filmSorties">
+                <ng-template carouselSlide [id]="filmSortie.id">
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                      </div>
+                      <div class="flip-card-back"><br>
+                        <h2>Film Name</h2>
+                        <h3>film genre</h3>
+                        <button mat-button (click)="filmContent()">plus de detail<mat-icon>navigate_next</mat-icon></button>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </ng-template>
+              </ng-container>
+
+            </owl-carousel-o>
+            <div  class="d-flex justify-content-center">
+              <div class="voirtous" (click)="tousFilm()">
+                Voir tous les films
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <mat-card>
+        <div class="divTextFilm">
+          <span class="h1L">Toujours à </span><span class="h1B"> l'affiche</span>
+          <div class="h1Sous">
+            <h4>Votre Cinema <span class="h1B">Rif  tetouan</span></h4>
+          </div>
+          <div class="toujourAlAffiche">
+            <owl-carousel-o [options]="lesSorties">
+
+              <ng-container *ngFor="let filmSortie of filmSorties">
+                <ng-template carouselSlide [id]="filmSortie.id">
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                      </div>
+                      <div class="flip-card-back"><br>
+                        <h2>Film Name</h2>
+                        <h3>film genre</h3>
+                        <button mat-button>plus de detail<mat-icon>navigate_next</mat-icon></button>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </ng-template>
+              </ng-container>
+
+            </owl-carousel-o>
+            <div  class="d-flex justify-content-center">
+              <div class="voirtous" (click)="tousFilm()">
+                Voir tous les films
+              </div>
+            </div>
+          </div>
+        </div>
+      </mat-card>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <mat-card>
+        <div class="divTextFilm">
+          <span class="h1B"> Prochainement</span>
+          <div class="h1Sous">
+            <h4>Votre Cinema <span class="h1B">Rif  tetouan</span></h4>
+          </div>
+
+          <div class="toujourAlAffiche">
+            <owl-carousel-o [options]="lesSorties">
+
+              <ng-container *ngFor="let filmSortie of filmSorties">
+                <ng-template carouselSlide [id]="filmSortie.id">
+
+                  <div class="flip-card">
+                    <div class="flip-card-inner">
+                      <div class="flip-card-front">
+                        <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                      </div>
+                      <div class="flip-card-back"><br>
+                        <h2>Film Name</h2>
+                        <h3>film genre</h3>
+                        <button mat-button>plus de detail<mat-icon>navigate_next</mat-icon></button>
+
+                      </div>
+                    </div>
+                  </div>
+
+                </ng-template>
+              </ng-container>
+
+            </owl-carousel-o>
+            <div  class="d-flex justify-content-center">
+              <div class="voirtous" (click)="tousFilm()">
+                Voir tous les films
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3></h3>
+      </mat-card>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12" >
+      <mat-card >
+
+        <div class="divTextFilm" >
+          <span class="h1L">Inscrivez-vous à la </span><span class="h1B"> Newsletter</span>
+          <div class="h1Sous">
+            <h4>Votre Cinema <span class="h1B">Rif  tetouan</span></h4>
+          </div>
+        </div>
+        <div class="col-sm-12 text-center">
+          <p>Bons plans, actualité, soirée à thème, avant-premières et sorties cinéma…
+            Recevez toute l'actualité de votre cinéma <strong>Rif Tetouan*</strong></p>
+
+        </div>
+        <form class="example-form">
+          <div class="col-sm-8 input">
+            <mat-form-field class="example-full-width" appearance="outline">
+              <mat-label>Email</mat-label>
+              <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
+              <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="emailFormControl.hasError('required')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4 btn">
+            <div class="d-grid">
+              <button type="button" class="btn"> Valider</button>
+            </div>
+          </div>
+
+        </form>
+
+
+
+      </mat-card>
+    </div>
+  </div>
+
+</div>
+

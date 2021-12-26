@@ -1,0 +1,34 @@
+
+a:hover{
+    text-decoration:none;
+}
+.section-padding {
+	padding: 60px 0;
+}
+.bottom {
+    background-color: #FFCC1D;
+    clear: both;
+     position: relative;
+     height: 200px;
+     margin-top: 0px;
+     margin-bottom:0px;
+
+}
+.bottom .copyright {
+    color: #e5e5e5;
+    font-weight: 600;
+}
+
+.bottom p {
+    margin-bottom: 0;
+    line-height: 30px;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+.copyright p span {
+    color: #0B4619;
+}
+.bottom .copyright p, .bottom .copyright a:hover{
+    color: #6c6d83;
+}

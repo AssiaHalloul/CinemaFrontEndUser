@@ -1,0 +1,54 @@
+
+<div class="container ">
+
+  <div class="row">
+    <div class="col-sm-12" >
+      <span class="textFilm">Tous les  <strong>films</strong> </span>
+      <div class="h1Sous">
+        <h4>Cinema <span class="h1B">Rif  tetouan</span></h4>
+      </div>
+      <mat-card>
+        <form class=" text-center" [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+          <div class="col-sm-4" id="genre">
+            <mat-form-field appearance="outline" >
+              <mat-label>Genre</mat-label>
+              <mat-select formControlName="genre" required>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="col-sm-4" id="status">
+            <mat-form-field appearance="outline">
+              <mat-label>Status</mat-label>
+              <mat-select formControlName="status" required>
+                <mat-option value="one">First option</mat-option>
+                <mat-option value="two">Second option</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+
+          <div class="col-sm-4" id="buttonFilter">
+            <div class="">
+              <button   class="btn" type="submit" [disabled]="!filterForm.valid"> Filter</button>
+            </div>
+          </div>
+
+        </form>
+
+
+      </mat-card>
+      <br><br>
+      <div class="col-sm">
+        <div class="card">
+          <img src="../../../assets/images/1.jpg" alt="Avatar" style="width:100%">
+          <div class="filmContent">
+            <h4><b>Film name</b></h4>
+            <span class="moredetails" (click)="moreDetails()">more details</span>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

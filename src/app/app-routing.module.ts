@@ -1,10 +1,23 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { Routes,RouterModule } from '@angular/router';
+import { HomeComponent } from './views/home/home.component';
+import { FilmsComponent } from './views/films/films.component';
+import { SeancesComponent } from './views/seances/seances.component';
+import { FilmContentComponent } from './views/film-content/film-content.component';
 
-const routes: Routes = [];
-
+const routes:Routes=[
+ {path:'home',component:HomeComponent},
+ {path:'films',component:FilmsComponent},
+ {path:'seances',component:SeancesComponent},
+ {path:'filmcontent',component:FilmContentComponent},
+]
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes)
+  ],
+  exports:[RouterModule],
+  declarations: []
 })
 export class AppRoutingModule { }
