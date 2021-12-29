@@ -23,7 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FilmContentComponent } from './views/film-content/film-content.component';
 import {MatChipsModule} from '@angular/material/chips';
-
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +51,7 @@ import {MatChipsModule} from '@angular/material/chips';
     MatInputModule,
     ReactiveFormsModule,
     MatChipsModule,
+    HttpClientModule,
 
   ],
   providers: [],

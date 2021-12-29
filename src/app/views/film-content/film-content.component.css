@@ -1,6 +1,6 @@
 .container{
  margin: 5% 0;
-
+ margin-left:5em;
  }
 
 p{
@@ -26,9 +26,7 @@ p{
     padding-top: 2rem;
     font-weight: 100;
 }
-.container{
-  margin-left:4em;
-}
+
 .textFilm{
       font-size: 6rem;
       line-height: 4rem;
