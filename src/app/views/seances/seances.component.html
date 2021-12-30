@@ -8,8 +8,8 @@
       <div class="h1Sous">
         <h4>Cinema <span class="h1B">Rif  tetouan</span></h4>
       </div>
-      <mat-tab-group dynamicHeight color="white" background-color="black">
-        <mat-tab label="22">
+      <mat-tab-group dynamicHeight color="white" background-color="black" (selectedTabChange)="tabClick($event)">
+        <!-- <mat-tab label="{{first}}">
           <br>
           <div class="row">
             <div class="col-sm-2" id="film" >
@@ -35,14 +35,37 @@
 
           </div>
 
-        </mat-tab>
+        </mat-tab> -->
 
-        <mat-tab label="23"> Content 2 </mat-tab>
-        <mat-tab label="24"> Content 3 </mat-tab>
+        <mat-tab *ngFor="let day of currentWeek" label="{{day.number}}" [disabled]="isSelected(day.jour) == true" > 
+          <br>
+          <div class="filmSeance" *ngFor="let detail of details">
+            
+            <div class="col-sm-2" id="film" >
+              <div class="card">
+                <img src="{{'http://localhost:8080/Images/films/'+detail.poster}}" alt="Avatar" style="height: 200px; width: 100%;">
+                <div class="filmContent">
+                  <h4><b>{{detail.titre}}</b></h4>
+                  <span class="moredetails" (click)="moreDetails()">more details</span>
+
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-9" id="seance">
+              <div class="chip"  *ngFor="let date of detail.dates">
+                {{date.date | date:"HH:mm"}}
+              </div>
+
+            </div>
+
+          </div>
+          <br>
+        </mat-tab>
+        <!-- <mat-tab label="24"> Content 3 </mat-tab>
         <mat-tab label="25"> Content 2 </mat-tab>
         <mat-tab label="26"> Content 3 </mat-tab>
         <mat-tab label="27"> Content 3 </mat-tab>
-        <mat-tab label="28"> Content 3 </mat-tab>
+        <mat-tab label="28"> Content 3 </mat-tab> -->
       </mat-tab-group>
     </div>
   </div>
