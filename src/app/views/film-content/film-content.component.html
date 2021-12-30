@@ -10,43 +10,65 @@
       <mat-card>
         <div class="row">
           <div class="col-sm">
-            <img src="../../../assets/images/2.jpg" alt="Avatar" height="100%" width="100%">
+            <img src="{{'http://localhost:8080/Images/films/'+contentFilm.poster}}" alt="Avatar" height="100%" width="100%">
           </div>
           <div class="col-sm-5">
-            <h1><strong>CAPTAIN AMERICA</strong></h1>
-            <h3>Drama , Crime , thriller , Histoire<span>  02:30:15</span></h3>
-            <p>
-              Un texte est une série orale ou écrite de mots perçus comme constituant un ensemble cohérent, porteur de sens et utilisant les structures propres
-              à une langue. Un texte n'a pas de longueur déterminée sauf dans le cas de poèmes à forme fixe comme le sonnet ou le haïku.
-            </p>
-            <h3>Realisateur :<span></span></h3>
-            <h3>Acteurs :<span> </span></h3>
-            <h3>Sortie :<span> 09/12/2021 </span></h3>
-            <p></p>
+            <h1><strong>{{contentFilm.titre}}</strong></h1>
+            <h3>{{contentFilm.genre.nom}}<span>  {{contentFilm.duree}}</span></h3>
+            <p>{{contentFilm.description}}</p>
+            <h3>Realisateur :<span>{{contentFilm.realisateur.nom}}</span></h3>
+            <h3>Acteurs :<span *ngFor="let acteur of acteurs">{{acteur.nom}} {{acteur.prenom}}, </span></h3>
+            <h3>Sortie :<span> {{contentFilm.annee}} </span></h3>
           </div>
           <div class="col-sm">
-            <iframe width="400" height="240" src="https://www.youtube.com/embed/IB0keJtKDvw" title="YouTube video player" frameborder="0"
+            <iframe class="e2e-iframe-trusted-src" width="400" height="240" [src]="videoTrailer"  title="YouTube video player" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
 
             </iframe>
           </div>
         </div>
         <div class="divTextFilm">
-          <h1>Les <strong>Photos</strong></h1>
+          <mat-tab-group  dynamicHeight mat-align-tabs="start">
 
-          <div class="toujourAlAffiche">
-            <owl-carousel-o [options]="lesSorties">
+            <mat-tab label="Film Image" >
+              <div class="containerImage" *ngFor="let gallerie of galleries">
+                <img src="{{'http://localhost:8080/Images/films/'+gallerie.image}}"  alt="Avatar" class="image">
+              </div>
+            </mat-tab>
+            <mat-tab label="Acteurs Image" >
+              <div class="containerImage" *ngFor="let acteur of acteurs">
+                <img src="{{'http://localhost:8080/Images/personnes/'+acteur.photo}}"  alt="Avatar" class="image">
+                <div class="overlay">{{acteur.nom}} {{acteur.prenom}}</div>
+              </div>
+            </mat-tab>
+            <mat-tab label="Realisateur Image" >
+              <div class="containerImage" >
+                <img src="{{'http://localhost:8080/Images/personnes/'+contentFilm.realisateur.photo}}"  alt="Avatar" class="image">
+                <div class="overlay">{{contentFilm.realisateur.nom}} {{contentFilm.realisateur.prenom}}</div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
 
-              <ng-container *ngFor="let filmSortie of filmSorties">
-                <ng-template carouselSlide [id]="filmSortie.id">
-                  <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
-                </ng-template>
-              </ng-container>
 
-            </owl-carousel-o>
+        </div>
 
+        <div class="divTextFilm">
+          <h1>Les <strong>Evenements</strong></h1>
+          <div class="flip-card"  *ngFor="let event of eventsFilm">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src="{{'http://localhost:8080/Images/evenements/'+event.poster}}" alt="Avatar" style="width:200px;height:300px;">
+              </div>
+              <div class="flip-card-back"><br>
+                <h2>{{event.titre}}</h2>
+                <h3>{{event.typeEvent.type_event}}</h3>
+                <button mat-button (click)="openDialog(event)" >plus de detail<mat-icon>navigate_next</mat-icon></button>
+
+              </div>
+            </div>
           </div>
         </div>
+
         <div class="divTextFilm">
           <h1>Les <strong>Seances</strong></h1>
 

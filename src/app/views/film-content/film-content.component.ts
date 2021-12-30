@@ -1,5 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import {FilmService} from '../../services/filmService/film.service';
+import{Film} from '../../models/film.model'
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import {Inject} from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {EvenementComponent} from './evenement/evenement.component';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-film-content',
@@ -7,41 +15,67 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./film-content.component.css']
 })
 export class FilmContentComponent implements OnInit {
-   filmSorties = [
-       {id: "1", img: "../../../assets/images/1.jpg"},
-       {id: "2", img: "../../../assets/images/2.jpg"},
-       {id: "3", img: "../../../assets/images/3.jpg"},
-       {id: "4", img: "../../../assets/images/4.jpg"},
-       {id: "5", img: "../../../assets/images/5.jpg"},
-       {id: "6", img: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
-     ];
-  constructor() { }
+
+
+   contentFilm:any;
+   eventsFilm:any;
+   videoTrailer:any;
+   rousUrl:any;
+   acteurs:any[];
+   galleries:any[];
+  constructor(public dialog: MatDialog,private sanitizer:DomSanitizer,private router: Router,private route:ActivatedRoute, private filmService:FilmService) { }
+  idFilm=this.route.snapshot.paramMap.get('id');
 
   ngOnInit(): void {
+    this.getContentFilmById(this.idFilm);
+    this.getGallerieByFilmId(this.idFilm);
+    this.getEventsFilmById(this.idFilm);
+
   }
 
-  lesSorties: OwlOptions = {
-              loop: true,
-              mouseDrag: true,
-              touchDrag: true,
-              pullDrag: true,
-              dots: false,
-              navSpeed: 700,
-              navText: ['', ''],
-              responsive: {
-                0: {
-                  items: 1
-                },
-                400: {
-                  items: 2
-                },
-                740: {
-                  items: 3
-                },
-                940: {
-                  items:7
-                }
-              },
-              nav: false
-            }
+
+  openDialog(event:any): void {
+      const dialogRef = this.dialog.open(EvenementComponent, {
+        height: '550px',
+        width: '800px',
+        data: {eventInformations: event}
+      });
+
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');
+
+      });
+    }
+
+
+  getContentFilmById(id:any){
+        this.filmService.getFilmById(id).subscribe(res => {
+                      this.contentFilm = res;
+                      this.acteurs=res.acteurs;
+                      this.rousUrl = "https://www.youtube.com/embed/"+res.trailer;
+                      this.videoTrailer = this.sanitizer.bypassSecurityTrustResourceUrl(this.rousUrl);
+                      console.log(res);
+
+        });
+    }
+
+    getEventsFilmById(id:any){
+            this.filmService.getEventByFilmId(id).subscribe(res => {
+                 this.eventsFilm=res;
+                 console.log(res);
+            });
+    }
+
+
+  getGallerieByFilmId(id:any){
+        this.filmService.getGallerieByFilmId(id).subscribe(res => {
+            this.galleries=res;
+            console.log(res);
+
+        });
+    }
+
+
+
+
 }

@@ -3,6 +3,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import {FormControl, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {FilmService} from '../../services/filmService/film.service';
+import{Film} from '../../models/film.model'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
       ];
 
  filmProchainement : any;
+ film:Film;
 
  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   constructor(private router: Router, private filmService:FilmService) { }
@@ -94,9 +96,9 @@ export class HomeComponent implements OnInit {
             nav: false
           }
 
-          filmContent(){
-            console.log("filmContent")
-            this.router.navigate(['/filmcontent']);
+          filmContent(film:Film){
+            console.log(film.id)
+            this.router.navigate(['/filmcontent',film.id]);
           }
           tousFilm(){
             console.log("click here")

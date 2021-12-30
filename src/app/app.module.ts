@@ -24,6 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FilmContentComponent } from './views/film-content/film-content.component';
 import {MatChipsModule} from '@angular/material/chips';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
+import { EvenementComponent } from './views/film-content/evenement/evenement.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     FilmsComponent,
     SeancesComponent,
     FooterComponent,
-    FilmContentComponent
+    FilmContentComponent,
+    EvenementComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +56,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatChipsModule,
     HttpClientModule,
+    MatDialogModule,
 
   ],
   providers: [],
