@@ -37,7 +37,7 @@
                       <div class="flip-card-back"><br>
                         <h2>Film Name</h2>
                         <h3>film genre</h3>
-                        <button mat-button (click)="filmContent()">plus de detail<mat-icon>navigate_next</mat-icon></button>
+                        <button mat-button >plus de detail<mat-icon>navigate_next</mat-icon></button>
 
                       </div>
                     </div>
@@ -121,12 +121,12 @@
                   <div class="flip-card">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
-                        <img src="{{'http://localhost:8080/Images/'+filmProch.poster}}" alt="Avatar" style="width:200px;height:300px;">
+                        <img src="{{'http://localhost:8080/Images/films/'+filmProch.poster}}" alt="Avatar" style="width:200px;height:300px;">
                       </div>
                       <div class="flip-card-back"><br>
                         <h2>{{filmProch.titre}}</h2>
                         <h3>{{filmProch.genre.nom}}</h3>
-                        <button mat-button>plus de detail<mat-icon>navigate_next</mat-icon></button>
+                        <button mat-button (click)="filmContent(filmProch)">plus de detail<mat-icon>navigate_next</mat-icon></button>
 
                       </div>
                     </div>

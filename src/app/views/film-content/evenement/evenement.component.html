@@ -1,0 +1,47 @@
+
+<div class="dialogEvent">
+
+  <div class="row">
+
+    <div class="col-sm-5">
+      <h1><strong>{{data.eventInformations.titre}}</strong></h1>
+      <h3>{{data.eventInformations.typeEvent.type_event}}<span>  {{data.eventInformations.duree}}</span></h3>
+      <p>{{data.eventInformations.description}}</p>
+
+    </div>
+
+  </div>
+  <div class="divTextFilm">
+    <h1>Les <strong>Photos</strong></h1>
+
+      <div class="containerImage" *ngFor="let gallerie of galleries">
+        <img src="{{'http://localhost:8080/Images/evenements/'+gallerie.image}}" style="height:160px;width:120px;"  alt="Avatar" class="image">
+      </div>
+  </div>
+  <br>
+  <div class="divTextFilm">
+    <h1>Les <strong>Seances</strong></h1>
+    <mat-tab-group  dynamicHeight mat-align-tabs="start">
+
+      <mat-tab label="22" disabled>
+
+      </mat-tab>
+      <mat-tab label="23" disabled> </mat-tab>
+      <mat-tab label="24">
+
+        <div class="chip">
+          17h00
+        </div>
+        <div class="chip">
+          17h00
+        </div>
+        <br><br><br>
+      </mat-tab>
+      <mat-tab label="25"> </mat-tab>
+      <mat-tab label="26"> </mat-tab>
+      <mat-tab label="27"> </mat-tab>
+      <mat-tab label="28"> </mat-tab>
+
+    </mat-tab-group>
+  </div>
+</div>

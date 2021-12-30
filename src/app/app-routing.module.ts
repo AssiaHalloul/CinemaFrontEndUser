@@ -7,10 +7,10 @@ import { SeancesComponent } from './views/seances/seances.component';
 import { FilmContentComponent } from './views/film-content/film-content.component';
 
 const routes:Routes=[
- {path:'home',component:HomeComponent},
+ {path:'',component:HomeComponent},
  {path:'films',component:FilmsComponent},
  {path:'seances',component:SeancesComponent},
- {path:'filmcontent',component:FilmContentComponent},
+ {path:'filmcontent/:id',component:FilmContentComponent},
 ]
 @NgModule({
   imports: [
