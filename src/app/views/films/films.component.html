@@ -43,7 +43,7 @@
           <img src="{{'http://localhost:8080/Images/films/'+film.poster}}" alt="Avatar" style="height: 200px; width: 100%;">
           <div class="filmContent">
             <h4><b>{{film.titre}}</b></h4>
-            <span class="moredetails" (click)="moreDetails()">more details</span>
+            <span class="moredetails" (click)="filmContent(film)">more details</span>
           </div>
         </div>
       </div>

@@ -32,12 +32,12 @@
                   <div class="flip-card">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
-                        <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                        <img src="{{'http://localhost:8080/Images/films/'+filmSortie.poster}}" alt="Avatar" style="width:200px;height:300px;">
                       </div>
                       <div class="flip-card-back"><br>
-                        <h2>Film Name</h2>
-                        <h3>film genre</h3>
-                        <button mat-button >plus de detail<mat-icon>navigate_next</mat-icon></button>
+                        <h2>{{filmSortie.titre}}</h2>
+                        <h3>{{filmSortie.genre.nom}}</h3>
+                        <button mat-button (click)="filmContent(filmSortie)">plus de detail<mat-icon>navigate_next</mat-icon></button>
 
                       </div>
                     </div>
@@ -77,12 +77,12 @@
                   <div class="flip-card">
                     <div class="flip-card-inner">
                       <div class="flip-card-front">
-                        <img [src]="filmSortie.img" alt="Avatar" style="width:200px;height:300px;">
+                        <img src="{{'http://localhost:8080/Images/films/'+filmSortie.poster}}" alt="Avatar" style="width:200px;height:300px;">
                       </div>
                       <div class="flip-card-back"><br>
-                        <h2>Film Name</h2>
-                        <h3>film genre</h3>
-                        <button mat-button>plus de detail<mat-icon>navigate_next</mat-icon></button>
+                        <h2>{{filmSortie.titre}}</h2>
+                        <h3>{{filmSortie.genre.nom}}</h3>
+                        <button mat-button (click)="filmContent(filmSortie)">plus de detail<mat-icon>navigate_next</mat-icon></button>
 
                       </div>
                     </div>

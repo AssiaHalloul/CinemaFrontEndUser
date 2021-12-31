@@ -1,6 +1,7 @@
 .container{
  margin: 5% 0;
-
+ height:auto;
+ min-height:40em;
  }
 
 p{

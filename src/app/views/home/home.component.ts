@@ -17,14 +17,7 @@ export class HomeComponent implements OnInit {
        {id: "3", img: "../../../assets/images/park.jpg"}
      ];
 
- filmSorties = [
-        {id: "1", img: "../../../assets/images/1.jpg"},
-        {id: "2", img: "../../../assets/images/2.jpg"},
-        {id: "3", img: "../../../assets/images/3.jpg"},
-        {id: "4", img: "../../../assets/images/4.jpg"},
-        {id: "5", img: "../../../assets/images/5.jpg"},
-        {id: "6", img: "https://material.angular.io/assets/img/examples/shiba2.jpg"}
-      ];
+ filmSorties:any;
 
  filmProchainement : any;
  film:Film;
@@ -33,17 +26,28 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private filmService:FilmService) { }
 
   ngOnInit(): void {
-    this.getFilmByStatusSortie("prochainement");
+
+    this.getFilmByStatusSortie("sortie");
+    this.getFilmByStatusProchainement("prochainement");
+
 
   }
+
+  getFilmByStatusProchainement(status:string){
+      this.filmService.getFilmByStatus(status).subscribe(res => {
+                    this.filmProchainement = res;
+                    console.log(res);
+
+      });
+    }
 
   getFilmByStatusSortie(status:string){
-    this.filmService.getFilmByStatus(status).subscribe(res => {
-                  this.filmProchainement = res;
-                  console.log(res);
+        this.filmService.getFilmByStatus(status).subscribe(res => {
+                      this.filmSorties = res;
+                     // console.log(res);
 
-    });
-  }
+        });
+      }
 
   customOptions: OwlOptions = {
         loop: true,
@@ -97,11 +101,11 @@ export class HomeComponent implements OnInit {
           }
 
           filmContent(film:Film){
-            console.log(film.id)
+           // console.log(film.id)
             this.router.navigate(['/filmcontent',film.id]);
           }
           tousFilm(){
-            console.log("click here")
+           // console.log("click here")
             this.router.navigate(['/films'])
           }
 

@@ -4,6 +4,7 @@ import { FormControl , FormBuilder, FormGroup, Validators } from '@angular/forms
 import { FilmService } from 'src/app/services/filmService/film.service';
 import { GenreService } from 'src/app/services/genreService/genre.service';
 import { Genre } from 'src/app/models/genre.model';
+import{Film} from '../../models/film.model'
 
 @Component({
   selector: 'app-films',
@@ -11,8 +12,6 @@ import { Genre } from 'src/app/models/genre.model';
   styleUrls: ['./films.component.css']
 })
 export class FilmsComponent implements OnInit {
-//   genre = new FormControl('', [Validators.required]);
-//   status = new FormControl('', [Validators.required]);
 
   constructor(private router: Router,private formBuilder: FormBuilder,private filmService: FilmService,
     private genreService:GenreService) { }
@@ -20,6 +19,7 @@ export class FilmsComponent implements OnInit {
   filterForm: FormGroup;
   films:any;
   genres:any;
+  film:Film;
 
   ngOnInit(): void {
     this.filterForm = new FormGroup({
@@ -51,16 +51,17 @@ export class FilmsComponent implements OnInit {
     });
   }
 
-  moreDetails(){
-    console.log("filmContent")
-    this.router.navigate(['/filmcontent']);
 
-  }
 
   onSubmit() {
     // TODO: Use EventEmitter with form value
     console.warn(this.filterForm.value);
     this.getFilmByStatusAndGenre(this.filterForm.value.status,this.filterForm.value.genre);
+  }
+
+  filmContent(film:Film){
+    console.log(film.id)
+    this.router.navigate(['/filmcontent',film.id]);
   }
 
 

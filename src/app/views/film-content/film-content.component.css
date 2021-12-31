@@ -48,9 +48,8 @@ p{
 }
 
 .containerImage {
-  position: relative;
-  width: 4em;
-  max-width: 300px;
+
+  position:relative;
   display: inline-block;
   margin:0 10px;
   margin-top:0.5em;
